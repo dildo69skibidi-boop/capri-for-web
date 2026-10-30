@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Capri</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <span class="title">Capri</span>
+    <button id="gear" aria-label="Settings">&#9881;</button>
+  </header>
+  <div id="stage"><img id="sprite" src="sprites/sit_chill.png" alt="Capri"></div>
+  <div id="msgs"></div>
+  <div id="bar">
+    <textarea id="input" rows="1" placeholder="Say something..."></textarea>
+    <button id="send" aria-label="Send">&#10148;</button>
+  </div>
+</div>
+
+<div id="settings" class="modal hidden">
+  <div class="card">
+    <h2>Settings</h2>
+    <label>Provider
+      <select id="provider"><option value="openai">OpenAI-compatible (OpenRouter, OpenAI...)</option><option value="anthropic">Anthropic</option></select>
+    </label>
+    <label>Base URL <input id="baseUrl" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
+    <label>Model <input id="model" autocomplete="off" autocapitalize="off" spellcheck="false"></label>
+    <label>API key <input id="apiKey" type="password" autocomplete="off" placeholder="paste your key" spellcheck="false"></label>
+    <label>Personality <select id="personality"></select></label>
+    <label class="row"><input id="romantic" type="checkbox"> Romantic mode (locked)</label>
+    <div class="row">
+      <button id="lock" class="ghost">Lock romantic modes</button>
+    </div>
+    <div class="row">
+      <button id="clearChat" class="ghost">Clear chat</button>
+      <button id="clearMem" class="ghost">Clear memory</button>
+    </div>
+    <div class="row"><button id="close">Save &amp; close</button></div>
+  </div>
+</div>
+
+<div id="unlock" class="modal hidden">
+  <div class="card">
+    <h2>Romantic modes</h2>
+    <p class="hint">Enter the password to unlock them. They lock again when you close the app.</p>
+    <input id="pw" type="password" autocomplete="off" placeholder="Password">
+    <p id="pwErr" class="err"></p>
+    <div class="row"><button id="pwCancel" class="ghost">Cancel</button><button id="pwOk">Unlock</button></div>
+  </div>
+</div>
+
+<script src="personas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
